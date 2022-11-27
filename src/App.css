@@ -13,15 +13,24 @@
   }
 }
 
+.card-deck{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1rem;
+  gap: 1rem;
+  width: 100%;
+}
 .App-header {
   min-height: 8vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(30px + 2vmin);
   padding: 20px; 
-  border-bottom: 1px solid rgb(220, 219, 219);
+  width: 100%;
+  background-color:   rgb(27, 26, 26);
+  color: white;
 }
 
 .App-link {
@@ -40,8 +49,7 @@
  
 
 .card-body {
-  display: grid;
-  /* grid-template-columns: repeat(4, 1fr); */
+  
   border: none;
   width: 260px;
   min-height: 320px;
