@@ -79,17 +79,19 @@
 .content {
   padding: 20px;
 }
+ 
 
 .country-detail {
   display: block;
   position: fixed;
   z-index: 1;
   padding:100px 30%;
-  left: 0;
-  top: 0;
-  width: 30%;
+  /* left: 0;
+  top: 0; */
+  width: 50%;
   height: 40%;
   overflow: auto;
   /* background-color: rgb(255, 255, 255); */
   background-color: rgba(255, 255, 255, 0.7);
 }
+ 
