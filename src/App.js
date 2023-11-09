@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
 import Card from "./Card";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import countriesAll from "./countriesAll.json";
 import "./App.css";
 
@@ -33,7 +34,7 @@ function App() {
       <div className="form-row m-5">
         <input
           id="input"
-          className="form-control col-md-9 m-2"
+          className="form-control, search col-md-9 m-2"
           type="search"
           placeholder="Search..."
           onChange={(e) => setCountriesFilter(e.target.value)}
@@ -61,8 +62,13 @@ function App() {
 
 const Heading = () => {
   return (
-    <div className="App">
-      <header className="App-header">Where in the world?</header>
+    <div className="app-header">
+      <header className="brand">Where in the world?</header>
+
+      <button className="theme-toggler">
+        <FontAwesomeIcon icon={faMoon} />
+        Dark Mode
+      </button>
     </div>
   );
 };
