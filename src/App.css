@@ -35,14 +35,6 @@ body {
 	padding: 0 4%;
 }
 
-.inputs-wrapper {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 4%;
-    margin: 2.5rem 0;
-}
-
 /* .light {
     color: while;
     border: 2px black;
@@ -50,6 +42,7 @@ body {
 
 .brand {
 	color: var(--text-primary);
+    font-weight: 600;
 }
 
 .theme-toggler {
@@ -64,7 +57,6 @@ body {
 	color: var(--text-primary);
 }
 
-
 /* .form-control {
     padding: 10px;
 	margin: 1rem;
@@ -74,11 +66,19 @@ body {
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 } */
 
+.inputs-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 2.5rem 0;
+}
 
 .search-container {
 	background-color: var(--elements-bg);
 	border-radius: 7px;
-	width: 30%;
+	width: 90%;
+	margin: auto;
 }
 
 .search-icon {
@@ -114,20 +114,21 @@ select:focus {
 }
 
 .select-wrapper {
-    padding-right: 0.5rem;
+	padding-right: 0.5rem;
 	border-radius: 7px;
-    background: var(--elements-bg);
+	background: var(--elements-bg);
+	margin: 2rem 0 0 5%;
 }
 
 select {
 	color: var(--text-primary);
-    background: var(--elements-bg);
+	background: var(--elements-bg);
 	padding: 0.85rem;
 	border-radius: 7px;
 	font-size: 1rem;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
+	border: none;
+	outline: none;
+	scroll-behavior: smooth;
 }
 
 select#xyz {
@@ -136,56 +137,58 @@ select#xyz {
 }
 
 select option {
-  background-color: var(--elements-bg);
+	background-color: var(--elements-bg);
 }
 
 option:checked {
-  background-color: var(--app-background);
+	background-color: var(--app-background);
 }
 
 option:hover {
-    background-color: var(--app-background);
+	background-color: var(--app-background);
 }
 
 .option:first-child {
-    display: none;
+	display: none;
 }
 
-
-.card-deck {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* margin: 1rem; */
-    gap: 3rem;
-    width: 92%;
-    margin: auto;
+.country-cards-container {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	/* margin: 1rem; */
+	gap: 2.5rem;
+	width: 70%;
+	margin: auto;
 }
 
-.card-body {
+.custom-card {
 	border: none;
     background-color: var(--elements-bg);
-    color: var(--text-primary);
-    cursor: pointer;
-	border-radius: 6px;
-    width: 100%;
+	color: var(--text-primary);
+	cursor: pointer;
+	border-radius: 4px;
+	width: 100%;
+	text-decoration: none;
+	transition: transform 0.2s;
 	/* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
-.card-body:hover {
+.custom-card:hover {
 	box-shadow: none;
-	border: 5px solid rgb(61, 60, 60);
-	transition: 0.2s;
+	/* border: 5px solid rgb(61, 60, 60); */
+	transform: scale(1.1);
 }
 
-.card-body img {
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
+.custom-card img {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	width: 100%;
+	height: 160px;
+	object-fit: cover;
+	border: 0;
 }
 
 .content {
-	padding: 0 0 40px 30px;
+	padding: 0 20px 40px 30px;
 }
 
 .country-detail {
@@ -200,4 +203,73 @@ option:hover {
 	overflow: auto;
 	/* background-color: rgb(255, 255, 255); */
 	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.country-info {
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.country-info span {
+    font-weight: 300;
+}
+
+/* details */
+.details-main {
+	width: 92%;
+	margin: auto;
+	padding-top: 2rem;
+	color: var(--text-primary);
+}
+
+.country-wrapper {
+	margin-top: 2rem;
+}
+
+.back-btn {
+	background-color: var(--elements-bg);
+	color: var(--text-primary);
+	padding: 0.5rem 1.5rem;
+	margin: 2rem 0;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+/* media queries */
+
+@media screen and (min-width: 690px) {
+	.country-cards-container {
+		width: 80%;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (min-width: 1064px) {
+	.country-cards-container {
+		width: 92%;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.inputs-wrapper {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 4%;
+	}
+
+	.search-container {
+		width: 30%;
+		margin: 0;
+	}
+
+	.select-wrapper {
+		padding-right: 0.5rem;
+        margin: 0;
+	}
+}
+
+@media screen and (min-width: 1340px) {
+    .country-cards-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
