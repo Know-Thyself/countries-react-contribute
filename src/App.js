@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import allCountries from './allCountries.json'
 import Home from './pages/Home'
@@ -44,40 +44,6 @@ function App() {
 					/>
 				</Routes>
 			</BrowserRouter>
-			{/* <div>
-				<div className='inputs-wrapper'>
-					<div className='search-container'>
-						<FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon' />
-						<input
-							id='input'
-							className='search-bar'
-							type='search'
-							placeholder='Search for a country...'
-							onChange={e => setCountriesFilter(e.target.value)}
-						/>
-					</div>
-
-					<div className='select-wrapper'>
-						<select
-							id='select'
-							onChange={e => setRegionsFilter(e.target.value)}
-							className='select'
-						>
-							<option className='option'>All regions</option>
-							{regions.map(region => (
-								<option className='option' value={region}>
-									{region}
-								</option>
-							))}
-						</select>
-					</div>
-				</div>
-				<div className='card-deck'>
-					{countries.map((country, index) => (
-						<Card data={country} index={index} />
-					))}
-				</div>
-			</div> */}
 		</main>
 	)
 }
