@@ -2,17 +2,16 @@ import Card from '../components/Card'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
-import countriesAll from '../countriesAll.json'
 
-const Home = ({ setCountryDetail }) => {
-	const regions = [...new Set(countriesAll.map(country => country.region))]
-	const [countries, setCountries] = useState(countriesAll)
+const Home = ({ allCountries, setCountryDetail }) => {
+	const regions = [...new Set(allCountries.map(country => country.region))]
+	const [countries, setCountries] = useState(allCountries)
 	const [regionsFilter, setRegionsFilter] = useState('All regions')
 	const [countriesFilter, setCountriesFilter] = useState('')
 
 	useEffect(() => {
 		setCountries(
-			countriesAll.filter(
+			allCountries.filter(
 				country =>
 					(regionsFilter === 'All regions' ||
 						country.region
@@ -57,7 +56,11 @@ const Home = ({ setCountryDetail }) => {
 			</div>
 			<div className='country-cards-container'>
 				{countries.map((country, index) => (
-					<Card data={country} index={index} setCountryDetail={setCountryDetail} />
+					<Card
+						data={country}
+						index={index}
+						setCountryDetail={setCountryDetail}
+					/>
 				))}
 			</div>
 		</div>

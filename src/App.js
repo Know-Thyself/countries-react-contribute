@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import allCountries from './allCountries.json'
 import Home from './pages/Home'
 import Details from './pages/Details'
-
 import useLocalStorage from 'use-local-storage'
 import Header from './components/Header'
 import './App.css'
@@ -23,7 +23,13 @@ function App() {
 					<Route
 						exact
 						path='/'
-						element={<Home theme={theme} setCountryDetail={setCountryDetail} />}
+						element={
+							<Home
+								theme={theme}
+								setCountryDetail={setCountryDetail}
+								allCountries={allCountries}
+							/>
+						}
 					/>
 					<Route
 						exact
@@ -32,6 +38,7 @@ function App() {
 							<Details
 								countryDetail={countryDetail}
 								setCountryDetail={setCountryDetail}
+								allCountries={allCountries}
 							/>
 						}
 					/>

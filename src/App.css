@@ -253,6 +253,14 @@ option:hover {
     font-weight: 400;
 }
 
+.border-countries {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 .border-countries p {
     font-weight: 600;
 }
@@ -265,9 +273,8 @@ option:hover {
 
 .country-btn {
     background-color: var(--elements-bg);
-    padding: 0.5rem 2.5rem;
+    padding: 0.4rem 2.5rem;
     border: 0;
-    margin: 0 1rem 1rem 0;
     border-radius: 4px;
     color: var(--text-primary);
     box-shadow: 1px 1px 1px #000;

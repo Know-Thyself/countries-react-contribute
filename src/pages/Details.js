@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-const Details = ({ countryDetail, setCountryDetail }) => {
+const Details = ({ countryDetail, setCountryDetail, allCountries }) => {
 	const languages = countryDetail.languages.map(language => language.name)
+	const getBorderCountry = e => {
+		const borderCountry = allCountries.filter(
+			country => country.alpha3Code === e.target.innerText
+		)
+		setCountryDetail(borderCountry[0])
+	}
 	return (
 		<main className='details-main'>
 			<Link to={'/'} className='back-btn'>
@@ -52,7 +57,9 @@ const Details = ({ countryDetail, setCountryDetail }) => {
 						<p>Border Countries:</p>
 						{countryDetail.borders &&
 							countryDetail.borders.map(country => (
-								<button className='country-btn'>{country}</button>
+								<span onClick={getBorderCountry} className='country-btn'>
+									{country}
+								</span>
 							))}
 					</div>
 				</div>
