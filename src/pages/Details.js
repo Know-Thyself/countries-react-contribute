@@ -1,21 +1,62 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Details = ({ countryDetail, setCountryDetail }) => {
-	console.log(countryDetail)
+	const languages = countryDetail.languages.map(language => language.name)
 	return (
 		<main className='details-main'>
 			<Link to={'/'} className='back-btn'>
 				<FontAwesomeIcon icon={faArrowLeft} /> Back
 			</Link>
-			<div className='country-wrapper'>
-				<img
-					alt={countryDetail.name}
-					src={countryDetail.flag}
-				/>
+			<div className='country-details-wrapper'>
+				<img alt={countryDetail.name} src={countryDetail.flag} />
+				<div className='detailed-country-info'>
+					<div className='country-info-container'>
+						<div className='main-info'>
+							<h3 className='country-name'>{countryDetail.name}</h3>
+							<p>
+								Native Name: <span>{countryDetail.nativeName}</span>
+							</p>
+							<p>
+								Population: <span>{countryDetail.population}</span>
+							</p>
+							<p>
+								Region: <span>{countryDetail.region}</span>
+							</p>
+							<p>
+								Sub Region: <span>{countryDetail.subregion}</span>
+							</p>
+							<p>
+								Capital: <span>{countryDetail.capital}</span>
+							</p>
+						</div>
+						<div className='sub-info'>
+							<p>
+								Top Level Domain:{' '}
+								<span>{countryDetail.topLevelDomain.join(', ')}</span>
+							</p>
+							<p>
+								Currencies:{' '}
+								<span>
+									{countryDetail.currencies[0].name.split(' ').join(', ')}
+								</span>
+							</p>
+							<p>
+								Languages: <span>{languages.join(', ')}</span>
+							</p>
+						</div>
+					</div>
+					<div className='border-countries'>
+						<p>Border Countries:</p>
+						{countryDetail.borders &&
+							countryDetail.borders.map(country => (
+								<button className='country-btn'>{country}</button>
+							))}
+					</div>
+				</div>
 			</div>
-			<h1>{countryDetail.name}</h1>
 		</main>
 	)
 }
