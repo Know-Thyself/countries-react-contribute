@@ -8,6 +8,7 @@ body {
 :root {
     --app-background: hsl(0, 0%, 98%);
     --elements-bg: hsl(0, 0%, 100%);
+    --elements-bg: #eeeeee;
     --text-primary: hsl(200, 15%, 8%);
     --input: hsl(0, 0%, 52%);
 }
@@ -170,13 +171,14 @@ option:hover {
     width: 100%;
     text-decoration: none;
     transition: transform 0.2s;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 1px;
 }
 
 .custom-card:hover {
     box-shadow: none;
     /* border: 5px solid rgb(61, 60, 60); */
     transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 1px;
 }
 
 .custom-card img {
@@ -217,14 +219,16 @@ option:hover {
 
 /* details */
 .details-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     width: 80%;
-    margin: auto;
-    padding-top: 2rem;
+    margin: 2rem auto;
     color: var(--text-primary);
 }
 
-.country-details-wrapper {
-    margin-top: 2rem;
+.detailed-country-info {
+    width: 100%;
 }
 
 .country-details-wrapper img {
@@ -237,9 +241,9 @@ option:hover {
     background-color: var(--elements-bg);
     color: var(--text-primary);
     padding: 0.5rem 1.5rem;
-    margin-top: 2rem;
     border-radius: 4px;
     text-decoration: none;
+    width: fit-content;
 }
 
 .main-info,
@@ -287,7 +291,6 @@ option:hover {
 }
 
 /* media queries */
-
 @media screen and (min-width: 690px) {
     .country-cards-container {
         width: 80%;
@@ -319,22 +322,18 @@ option:hover {
     }
 
     .details-main {
-        width: 90%;
+        width: 92%;
         margin: 4rem auto;
-    }
-
-    .back-btn {
-        margin-top: 4rem;
+        gap: 4rem;
     }
 
     .country-details-wrapper {
         display: grid;
         grid-template-columns: 1fr 2fr;
         place-items: center;
-        background-color: var(--app-background);
-        gap: 4rem;
+        gap: 8rem;
         padding-bottom: 0;
-        margin-top: 4rem;
+        height: fit-content;
     }
 
     .country-info-container {
