@@ -11,7 +11,7 @@ const Card = (props) => {
     >
       <img alt={props.data.name} src={props.data.flag} className="thumbnail" />
       <div className="content">
-        <h6>{props.data.name}</h6>
+        <h4 className='country-name'>{props.data.name}</h4>
         <strong>Population: </strong>
         {props.data.population.toLocaleString()}
         <br />
